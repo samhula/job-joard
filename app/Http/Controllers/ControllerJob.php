@@ -6,14 +6,17 @@ use Illuminate\Http\Request;
 
 use App\Models\Continent;
 use App\Models\Country;
+use App\Models\Job;
 
-class ControllerJobs extends Controller
+class ControllerJob extends Controller
 {
     public function index(){
         return view('/index', [
             'continents' => Continent::all(),
             'countries' => Country::orderBy('display_order', 'asc')
-            ->get()
+            ->get(),
+            'jobs' => Job::latest()
+            ->paginate(12)
         ]);
     }
 
@@ -21,7 +24,9 @@ class ControllerJobs extends Controller
         return view('/jobs', [
             'continents' => Continent::all(),
             'countries' => Country::orderBy('display_order', 'asc')
-            ->get()
+            ->get(),
+            'jobs' => Job::latest()
+            ->paginate(12)
         ]);
     }
 
@@ -30,6 +35,12 @@ class ControllerJobs extends Controller
             'continents' => Continent::all(),
             'countries' => Country::orderBy('display_order', 'asc')
             ->get()
+        ]);
+    }
+
+    public function show(Job $job){
+        return view('/job.show', [
+            'job' => $job
         ]);
     }
 }

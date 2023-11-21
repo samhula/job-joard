@@ -8,6 +8,6 @@
 			<section class="h-[calc(100vh-calc(2rem+60px))] bg-gray-200 border border-2 border-blue-500 rounded-lg p-4 text-center">10+ Posts</section>
 		</div>
 	</main>
-</body>
 <x-footer class="translate-y-20"/>
+</body>
 </html>

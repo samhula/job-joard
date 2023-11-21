@@ -1,12 +1,19 @@
+@props(['job'])
+
 <div {{$attributes->merge(['class' => ''])}}>
-	<h3 class="font-semibold text-2xl" id="job-title">Job Title</h3>
+	@if(isset($job))
+	<h3 class="font-semibold text-2xl dark:text-sky-500" id="job-title">{{$job->job_title}}</h3>
 	<hr class="m-2 dark:border-gray-600">
+	@else
+	<h3 class="font-semibold text-2xl dark:text-sky-500" id="job-title">No Job found</h3>
+	<hr class="m-2 dark:border-gray-600">
+	@endif
 	<div class="flex flex-col space-y-2">
 		<div class="flex flex-row space-x-2 ">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 				<path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
 			</svg>
-			<p class="text-sm sm:text-base" id="company-name">Company Name</p>
+			<p class="" id="company-name">Company Name</p>
 		</div>
 		<div class="flex flex-row space-x-2">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -31,13 +38,13 @@
 				<path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
 				<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
 			</svg>
-			<p class="text-sm sm:text-base" id="location-expand">Location</p>
+			<p class="" id="location-expand">Location</p>
 		</div>
 		<div class="flex flex-row space-x-2">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 				<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
 			</svg>
-			<p class="text-sm sm:text-base" id="salary">Salary</p>
+			<p class="" id="salary">Salary</p>
 		</div>
 		<div class="flex flex-row space-x-2">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -45,26 +52,31 @@
 			</svg>
 			<p class="text-xs text-gray-800 my-auto sm:text-sm dark:text-slate-200">8 hours ago</p>
 		</div>
-	</div>
-	<hr class="m-2 dark:border-gray-600">
-	<p class="my-2">Job Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	<div class="w-full flex flex-row justify-center space-x-4 mb-2">
+		<div class="w-full flex flex-row justify-center space-x-4 mb-2">
 		<button class="py-2 px-4 bg-blue-600 rounded-md text-white flex flex-row space-x-2 my-auto">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 			  <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
 			</svg>
 			<p class="my-auto">Apply</p>
 		</button>
-		<!-- <button class="py-2 px-4 border border-2 border-gray-500 rounded-md flex flex-row space-x-2 my-auto">
+		<div class="py-2 px-4 bg-gray-600 rounded-md text-white flex flex-row space-x-2 my-auto hidden">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+			  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+			</svg>
+			<p class="my-auto">Applied</p>
+		</div>
+		<button class="py-2 px-4 border border-2 border-gray-500 rounded-md flex flex-row space-x-2 my-auto">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 			  <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" />
 			</svg>
 			<p class="my-auto">Report</p>
-		</button> -->
+		</button>
 	</div>
+	</div>
+	<hr class="m-2 dark:border-gray-600">
+	@if(isset($job))
+	<p class="my-2">{{$job->description}}</p>
+	@else
+	<p class="my-2"> Job Description</p>
+	@endif
 </div>

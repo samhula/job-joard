@@ -25,6 +25,6 @@
 			</div>
 		</div>
 	</main>
-</body>
 <x-footer class="translate-y-20"/>
+</body>
 </html>

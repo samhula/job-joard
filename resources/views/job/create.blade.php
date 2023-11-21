@@ -46,13 +46,15 @@
 					</div>
 					<div class="flex flex-col space-y-2 col-span-6 lg:col-span-2">
 						<label class="w-full mx-auto" for="job-closing">Job closing date (dd/mm/yyyy)</label>
-						<input class="w-full p-2 mx-auto rounded-lg dark:bg-gray-700 dark:border-gray-600" type="date" min="{{now()->format('Y-m-d');}}" name="job-closing" id="job-closing">
+						<input class="w-full p-2 mx-auto rounded dark:bg-gray-700 dark:border-gray-600" type="date" min="{{now()->format('Y-m-d');}}" name="job-closing" id="job-closing">
 					</div>
 				</div>
 				<label class="w-10/12 mx-auto" for="job-description">Job Description</label>
 				<textarea class="w-10/12 p-2 mx-auto rounded-lg resize-none dark:bg-gray-700 dark:border-gray-600" rows="15" cols="50" name="job-description" id="job-description" placeholder="Job Description"></textarea>
-				<label class="w-10/12 mx-auto" for="job-type">Job Benefits</label>
-				<input class="w-10/12 p-2 mx-auto rounded-lg" type="text" name="benefits" id="benefits" placeholder="Comma Separated">
+				<label class="w-10/12 mx-auto" for="job-skills">Job Skills (Comma Separated)</label>
+				<input class="w-10/12 p-2 mx-auto rounded-lg dark:bg-gray-700 dark:border-gray-600" type="text" name="job-skills" id="job-skills" placeholder="Comma Separated">
+				<label class="w-10/12 mx-auto" for="job-benefits">Job Benefits (Comma Separated)</label>
+				<input class="w-10/12 p-2 mx-auto rounded-lg dark:bg-gray-700 dark:border-gray-600" type="text" name="job-benefits" id="job-benefits" placeholder="Comma Separated">
 				<!-- <div class="w-10/12 mx-auto flex flex-row space-x-2 mt-4">
 					<input type="checkbox" name="checkbox-t-and-c" id="job-featured" value="">
 					<label class="w-10/12 md:w-3/4 text-sm" for="checkbox-t-and-c">Make my job post <a href="#" class="text-blue-600">featured!</a> (+$30)</label>
@@ -62,16 +64,16 @@
 			</form>
 			<div class="w-10/12 mx-auto flex flex-col space-y-2 mt-4">
 				<p class="text-xl font-semibold">Sub Total</p>
-				<hr>
+				<hr class="dark:border-gray-600">
 				<p class="flex flex-row gap-4">$<span>0.00</span><span class="text-sm">(Daily)</span></p>
-				<p class="flex flex-row gap-4">$<span>0.00</span><span class="text-sm">(Featured)</span></p>
-				<hr>
+				<!-- <p class="flex flex-row gap-4">$<span>0.00</span><span class="text-sm">(Featured)</span></p> -->
+				<hr class="dark:border-gray-600">
 				<p class="text-2xl font-bold">Total</p>
 				<p class="flex flex-row gap-4">$<span>0.00</span></p>
 			</div>
 			<div class="w-10/12 mx-auto flex flex-row space-x-2 mt-4">
 				<input type="checkbox" name="checkbox-t-and-c" id="checkbox-t-and-c" value="tc-confirmed">
-				<label class="w-10/12 md:w-3/4 text-sm" for="checkbox-t-and-c" required>I accept the <a href="#" class="text-blue-600">terms and conditions</a></label>
+				<label class="w-10/12 md:w-3/4 text-sm" for="checkbox-t-and-c" required>I accept the <a href="#" class="text-blue-600 dark:text-blue-400">terms and conditions</a></label>
 			</div>
 			<div class="mx-auto flex flex-row justify-center mt-4">
 				<button class="w-10/12 p-3 bg-blue-600 text-white text-center rounded-md">

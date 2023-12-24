@@ -12,7 +12,7 @@
 				 <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
 			</svg>
 			<p class="text-sm sm:text-base font-semibold">
-				<a href="" class="job-title dark:text-sky-500">{{$job->job_title}}</a>
+				<a href="{{url('')}}/jobs/{{$job->id}}" class="job-title text-blue-600 dark:text-sky-500">{{$job->job_title}}</a>
 			</p>
 		</h1>
 		<div class="flex flex-row space-x-2">

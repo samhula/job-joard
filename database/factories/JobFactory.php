@@ -29,6 +29,9 @@ class JobFactory extends Factory
             'location' => $this->faker->country(),
             'salary' => rand(0, 100000),
             'description' => $this->faker->paragraph(2, true),
+            'skills' => $this->faker->words(2, true),
+            'benefits' => $this->faker->words(2, true),
+            'url' => $this->faker->paragraph(2, true),
         ];
     }
 }

@@ -6,7 +6,7 @@
 			<option value="{{$continent->name}}">{{$continent->name}}</option>
 		@endforeach
 	@endunless
-	<option value="Country" disabled class="text-black">--Countries--</option>
+	<option value="Country" disabled class="text-gray-200">--Countries--</option>
 	@unless(count($countries) == 0)
 		@foreach ($countries as $country)
 			<option value="{{$country->name}}">{{$country->name}}</option>

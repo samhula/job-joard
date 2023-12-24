@@ -1,7 +1,7 @@
 <x-head />
 <body class="w-full h-full flex flex-col mx-auto dark:bg-zinc-900 dark:text-slate-200">
 	<x-nav />
-	<main class="h-max flex flex-col mt-[calc(20vh)] w-full mx-auto mb-4">
+	<main class="h-max flex flex-col mt-[calc(15vh)] w-full mx-auto mb-4">
 		<div class="bg-stone-100 dark:bg-zinc-900 md:dark:bg-zinc-800 mx-auto w-full sm:w-11/12 md:w-3/5 xl:w-2/5 p-4 sm:p-10 rounded flex flex-col space-y-4">
 			<form class="flex flex-col mx-auto space-y-2 w-full" method="POST" action="/jobsearch/public/authenticate">
 				@csrf
@@ -20,7 +20,7 @@
 				<p>Forgot your password? Reset it <a href="{{request()->route()->url}}/jobsearch/public/resetpassword" class="text-blue-600 dark:text-blue-400">here!</a></p>
 			</div> -->
 			<div class="w-10/12 mx-auto flex flex-row text-sm">
-				<p>Don't have an account? Sign up <a href="{{request()->route()->url}}/signup" class="text-blue-600 dark:text-blue-400">here!</a></p>
+				<p>Don't have an account? Sign up <a href="signup" class="text-blue-600 dark:text-blue-400">here!</a></p>
 			</div>
 		</div>
 	</main>

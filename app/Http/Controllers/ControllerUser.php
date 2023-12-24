@@ -25,11 +25,11 @@ class ControllerUser extends Controller
         $formFields = $request->validate([
             'name' => ['required'],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
-            'password' => 'required|confirmed|min:8',
+            'account_type' => ['required'],
+            'password' => 'required|confirmed|min:8'
         ]);
 
         $formFields['password'] = bcrypt($formFields['password']);
-
         $user = User::create($formFields);
         auth()->login($user);
 
@@ -63,4 +63,10 @@ class ControllerUser extends Controller
 
         return redirect('/')->with('message', 'You have been logged out');
     }   
+
+    public function update(Request $request){
+        $formFields = $request->validate([
+            
+        ]);
+    }
 }

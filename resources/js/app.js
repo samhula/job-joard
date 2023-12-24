@@ -84,7 +84,12 @@ if(canvas){
 
 	function init(){
 		particlesArray = [];
+
 		let numberOfParticles = (canvas.height * canvas.width) / 15000;
+
+		if(numberOfParticles > 250){
+			numberOfParticles = 250;
+		}
 
 		for (let i=0; i < numberOfParticles; i++){
 			let size = (Math.random() * 3) + 1;
@@ -154,8 +159,12 @@ var jobCard = document.getElementsByClassName("job-card");
 //JOB CARD EXPANDED
 const jobTitleCard = document.getElementById("job-title");
 const jobCompanyNameCard = document.getElementById("company-name");
+const jobTypeCard = document.getElementById("job-type");
+const jobNumApplicants = document.getElementById("num-applicants");
+const jobDeadline = document.getElementById("deadline");
 const jobLocationCard = document.getElementById("location-expand");
-const jobSalaryCard = document.getElementById("salary");
+const jobSalaryCard = document.getElementById("salary-expand");
+const jobDescriptionCard = document.getElementById("description");
 
 //ON CLICK UPDATE JOB CARD DETAILS
 for (let i = 0 ; i < jobCard.length; i++){
@@ -166,29 +175,53 @@ for (let i = 0 ; i < jobCard.length; i++){
 
 // JOB CHECK IF SELECTED 
 function isSelected(job){
-	if (job.classList.contains("selected")){
-		console.log("Job data already collected, don't send request to database.");
-		return true;
-	} 
-	else {
-		console.log("Collecting data from database.");
-		return false;
+	if(job){
+		if (job.classList.contains("selected")){
+			console.log("Job data already collected, don't send request to database.");
+			return true;
+		} 
+		else {
+			console.log("Collecting data from database.");
+			return false;
+		}
 	}
+	return true;
 }
 
 //JOB CARD CLICK FUNCTION
 function displayJobDetails(job){
-	if (!isSelected(job)){
-		for (let i = 0 ; i < jobCard.length; i++){
-			if (jobCard[i].classList.contains("selected")){
-				jobCard[i].classList.remove("selected");
-			} 
-		}
+	if(window.innerWidth >= 768){
+		if (!isSelected(job)){
+			for (let i = 0 ; i < jobCard.length; i++){
+				if (jobCard[i].classList.contains("selected")){
+					jobCard[i].classList.remove("selected");
+				} 
+			}
+			job.classList.add("selected");
 
-		job.classList.add("selected");
-		jobTitleCard.innerText = job.querySelectorAll("div div p a")[0].innerText;
-		jobCompanyNameCard.innerText = job.querySelectorAll("div div p a")[1].innerText;
-		jobLocationCard.innerText = job.querySelectorAll("div div p a")[2].innerText;
+			let id = job.id;
+
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+
+			    	let response = JSON.parse(this.responseText);
+
+			    	jobTitleCard.innerText = response.job_title;
+					jobCompanyNameCard.innerText = response.company_name;
+					jobTypeCard.innerText = response.job_type;
+					jobNumApplicants.innerText = response.num_applications == "1" ? response.num_applications + " applicant" : response.num_applications + " applicants";
+					jobDeadline.innerText = response.deadline;
+					jobLocationCard.innerText = response.location;
+					jobSalaryCard.innerText = response.salary;
+					jobDescriptionCard.innerText = response.description;
+
+			        console.log("success");
+			    }
+			};
+			xhttp.open("GET", "http://localhost/jobsearch/public/api/jobs/" + id, true);
+			xhttp.send();
+		}
 	}
 }
 

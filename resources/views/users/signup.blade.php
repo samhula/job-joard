@@ -1,8 +1,8 @@
 <x-head />
 <body class="w-full h-full flex flex-col mx-auto dark:bg-zinc-900 dark:text-slate-200">
 	<x-nav />
-	<main class="h-max flex flex-col mt-[calc(20vh)] w-full mx-auto mb-4">
-		<div class="bg-stone-100 dark:bg-zinc-900 md:dark:bg-zinc-800 mx-auto w-full sm:w-11/12 md:w-3/5 xl:w-2/5 p-10 rounded">
+	<main class="h-max flex flex-col mt-[calc(16vh)] w-full mx-auto mb-4">
+		<div class="bg-stone-100 dark:bg-zinc-900 md:dark:bg-zinc-800 mx-auto w-full sm:w-11/12 md:w-3/5 xl:w-2/5 sm:p-10 rounded">
 			<form method="POST" action="" enctype="multipart/form-data" class="flex flex-col mx-auto space-y-2">
 				@csrf
 				<h2 class="w-10/12 mx-auto text-2xl font-semibold">Create an account</h2>
@@ -26,14 +26,16 @@
 				@error('password_confirmation')
 					<p class="w-10/12 mx-auto text-red-500">{{$message}}</p>
 				@enderror
-				<label class="w-10/12 mx-auto" for="account-type">Who are you?</label>
-				<div class="flex flex-row w-10/12 mx-auto space-x-2">
-					<input type="radio" name="account-type" value="Job Seeker">
-					<label for="account-type">Job Seeker</label>
-				</div>
-				<div class="flex flex-row w-10/12 mx-auto space-x-2">
-					<input type="radio" name="account-type" value="Recruiter">
-					<label for="account-type">Recruiter</label>
+				<label class="w-10/12 mx-auto" for="account_type">Who are you?</label>
+				<div class="w-10/12 flex flex-row mx-auto">
+					<div class="flex flex-row w-10/12 mx-auto space-x-2">
+						<input type="radio" name="account_type" value="seeker">
+						<label for="account_type">Job Seeker</label>
+					</div>
+					<div class="flex flex-row w-10/12 mx-auto space-x-2">
+						<input type="radio" name="account_type" value="recruiter">
+						<label for="account_type">Recruiter</label>
+					</div>
 				</div>
 				@error('account_type')
 					<p class="w-10/12 mx-auto text-red-500">{{$message}}</p>
@@ -55,7 +57,7 @@
 				</button>
 			</div> -->
 			<div class="w-10/12 mx-auto flex flex-row mt-4 text-sm">
-				<p>Already have an account? Sign in <a href="{{request()->route()->url}}/signin" class="text-blue-600 dark:text-blue-400">here!</a></p>
+				<p>Already have an account? Sign in <a href="signin" class="text-blue-600 dark:text-blue-400">here!</a></p>
 			</div>
 		</div>
 	</main>

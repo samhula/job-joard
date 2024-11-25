@@ -65,7 +65,7 @@
 			<div class="w-10/12 mx-auto flex flex-col space-y-2 mt-4">
 				<p class="text-xl font-semibold">Sub Total</p>
 				<hr class="dark:border-gray-600">
-				<p class="flex flex-row gap-4">$<span>0.00</span><span class="text-sm">(Daily)</span></p>
+				<p class="flex flex-row gap-4">$<span>1.00</span><span class="text-sm">(Daily)</span></p>
 				<!-- <p class="flex flex-row gap-4">$<span>0.00</span><span class="text-sm">(Featured)</span></p> -->
 				<hr class="dark:border-gray-600">
 				<p class="text-2xl font-bold">Total</p>

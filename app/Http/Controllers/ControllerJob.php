@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
+use App\Models\Application;
 use App\Models\Continent;
 use App\Models\Country;
 use App\Models\Job;
@@ -160,7 +161,12 @@ class ControllerJob extends Controller
 
     public function apply(Request $request, Job $job, User $user)
     {
-        
+        if(auth()->user()->account_type != 'seeker'){
+            $request = null;
+            return redirect('/');
+        }
+
+
     }
 
     public function user()

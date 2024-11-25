@@ -1,6 +1,6 @@
 <nav class="bg-gray-200 text-black fixed w-full z-10 top-0 dark:bg-gray-800 dark:text-white">
 	<ul class="py-4 sm:px-0 w-11/12 lg:w-10/12 mx-auto flex flex-row justify-between">
-		<li><h1 class="text-3xl lg:text-4xl drop-shadow-lg font-bold"><a href="{{url('')}}">Sitename</a></h1></li>
+		<li><h1 class="text-3xl lg:text-4xl drop-shadow-lg font-bold"><a href="{{url('')}}">{{config('app.name')}}</a></h1></li>
 		<ul class="flex flex-row space-x-6 my-auto font-semibold">
 			@auth
 			<li class="hidden sm:block"><a href="/jobsearch/public/dashboard">Dashboard</a></li>

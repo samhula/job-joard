@@ -213,7 +213,7 @@ function displayJobDetails(job){
 					jobNumApplicants.innerText = response.num_applications == "1" ? response.num_applications + " applicant" : response.num_applications + " applicants";
 					jobDeadline.innerText = response.deadline;
 					jobLocationCard.innerText = response.location;
-					jobSalaryCard.innerText = response.salary;
+					jobSalaryCard.innerText = "$USD " + response.salary;
 					jobDescriptionCard.innerText = response.description;
 
 			        console.log("success");
